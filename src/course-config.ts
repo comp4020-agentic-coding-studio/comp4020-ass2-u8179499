@@ -46,17 +46,28 @@ export const slopCourseMetaSchema = z
 // The code's last three digits were assigned to this repo when it was
 // provisioned, and no other course in the cohort has them. Change the first
 // digit to your course's level (and `level` to match); keep the other three.
-// STARTER_CONTENT: replace this course record, then remove this comment.
-export const courseMeta = slopCourseMetaSchema.parse({
-  code: "SLOP1550",
-  title: "Course Title Goes Here",
-  session: "Semester 1",
-  year: 2027,
-  level: 1,
-  startDate: "2027-02-22",
-  endDate: "2027-05-28",
-  description:
-    "One concise paragraph explaining what this course is, who it is for, " +
-    "and why somebody would choose to spend a semester taking it.",
-  tags: ["replace me"],
-}) satisfies CourseMetaInput;
+export const courseMeta = {
+  ...slopCourseMetaSchema.parse({
+    code: "SLOP3550",
+    title: "Buttons: Twelve Weeks of Pressing Things",
+    session: "Semester 1",
+    year: 2027,
+    level: 3,
+    startDate: "2027-02-22",
+    endDate: "2027-05-28",
+    description:
+      "A button is the smallest promise an interface makes: press me, and " +
+      "something will happen. This course spends twelve weeks taking that " +
+      "promise apart — its history, its timing, its psychology, its " +
+      "failures, and who benefits when you believe it.",
+    tags: ["buttons", "interaction", "interface"],
+  }),
+  learningOutcomes: [
+    "Explain how a digital button inherits its meaning from a century of mechanical predecessors.",
+    "Analyse why an interface element reads as pressable, using the vocabulary of affordance and signifier, independent of visual style.",
+    "Design and build a button whose feedback timing and reward structure match the actual weight of the action it performs.",
+    "Identify a real manipulative button, rebuild an honest version of it, and name precisely what leverage was removed.",
+    "Test a single button across different bodies and reaches, and identify the exact point where the same push mechanism stops working for a hand that isn't yours.",
+    "Defend, in full technical and rhetorical detail, why one specific button deserves to be pressed.",
+  ],
+} satisfies CourseMetaInput;
