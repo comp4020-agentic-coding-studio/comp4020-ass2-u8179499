@@ -31,4 +31,9 @@ export const siteConfig = defineSiteConfig({
   licence: "CC-BY-NC-SA-4.0",
   socialImage: "/src/assets/images/card.png",
   socialImageAlt: `A preview card for ${courseMeta.code}: ${courseMeta.title}`,
+
+  // A control panel doesn't have a light mode. Fixing the scheme also means
+  // every surface only has to be tuned once, against the dark half of the
+  // theme's derived tokens.
+  colorScheme: "dark",
 });

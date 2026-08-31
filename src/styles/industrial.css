@@ -1,0 +1,175 @@
+/* SLOP3550 industrial control-panel theme.
+ *
+ * Overrides the three brand tokens the theme derives every surface, text, and
+ * border colour from (see astro-theme-university/styles/tokens.css) — a
+ * safety-orange primary instead of Slop gold, so every neutral surface
+ * re-derives as a faintly warm graphite rather than the stock teal-tinted
+ * grey. Loaded after astro-theme-slop/slop.css via `brandCss`, and — like
+ * that file — deliberately unlayered so it wins over the theme's own
+ * `@layer at.tokens`/`at.components` regardless of import order. */
+:root {
+  --at-primary: #ff6a00;
+  --at-secondary: #c2650b;
+  --at-tertiary: #4a6fa5;
+
+  /* Sharper, more mechanical edge than the stock 6px radius — control-panel
+     bezels and switches, not soft consumer-app corners. */
+  --at-border-radius: 0.1875rem;
+}
+
+/* Nav: a control-panel top strip, not a marketing header. */
+.at-nav {
+  position: sticky;
+  border-block-end: 1px solid var(--at-divider);
+}
+
+.at-nav::before {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 3px;
+  background: var(--at-accent);
+  pointer-events: none;
+}
+
+/* Desktop: one compact control-bar row. The theme's own `.at-nav-inner` is
+   `flex-wrap: wrap`, which — once the mono/uppercase nav-link styling below
+   widened the link row — no longer fit brand + links + search on one line,
+   so the search button wrapped onto its own near-empty second row. Forcing
+   `nowrap` and letting the (already `overflow-x: auto`) link row shrink
+   keeps everything on one row; the stock vertical padding is also cut down,
+   since a masthead-height header reads as empty space on a console. */
+@media (width >= 640px) {
+  .at-nav-inner {
+    flex-wrap: nowrap;
+    padding-block: var(--at-spacing-sm);
+  }
+
+  .at-nav-links {
+    min-width: 0;
+  }
+
+  :root {
+    --at-nav-height: 3.75rem;
+  }
+}
+
+.at-nav-links a {
+  font-family: var(--at-font-mono);
+  font-size: var(--at-font-size-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border: 1px solid transparent;
+}
+
+.at-nav-links a:hover {
+  border-color: var(--at-divider);
+  background: var(--at-bg-alt);
+}
+
+.at-nav-links a[aria-current="page"] {
+  color: var(--at-on-accent);
+  background: var(--at-accent);
+  box-shadow: inset 0 2px 4px rgb(0 0 0 / 35%);
+}
+
+.at-nav-links a:active {
+  transform: translateY(1px);
+}
+
+.at-icon-button:active {
+  transform: translateY(1px);
+  box-shadow: inset 0 2px 4px rgb(0 0 0 / 40%);
+}
+
+/* Cards: labeled modules, not blog tiles. Every listing (sessions, lectures,
+   assessments, people) shares this component, so this one rule set covers
+   all four. */
+.at-card {
+  border: 1px solid var(--at-divider);
+  border-block-start: 3px solid var(--at-accent);
+  background: var(--at-bg-alt);
+}
+
+a.at-card:hover {
+  background: var(--at-bg-elevated);
+  border-color: var(--at-accent);
+}
+
+a.at-card:active {
+  transform: translateY(1px);
+}
+
+.at-card-title {
+  font-size: 1.0625rem;
+}
+
+/* The "Week N · date" / "Due date · Weight" line each grid renders as
+   <small> reads as a stamped spec plate rather than blog-post metadata. */
+.at-card-body small {
+  display: inline-block;
+  margin-block-start: var(--at-spacing-xs);
+  font-family: var(--at-font-mono);
+  font-size: var(--at-font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--at-text-muted);
+}
+
+/* Buttons: a physical control, not a rounded pill. */
+.at-button {
+  font-family: var(--at-font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.at-button:active {
+  transform: translateY(1px);
+  box-shadow: inset 0 2px 4px rgb(0 0 0 / 35%);
+}
+
+.at-callout__title {
+  font-size: var(--at-font-size-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Page lead paragraph: a console readout strip under every h1. */
+.lead {
+  padding-inline-start: var(--at-spacing-md);
+  border-inline-start: 3px solid var(--at-accent);
+}
+
+hr {
+  border-block-start-style: dashed;
+}
+
+th {
+  font-size: var(--at-font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* People photos: the only images this site's Card/Hero components render.
+   The existing portraits are warm cream/gold risograph illustrations, which
+   sit oddly against the dark graphite panels rather than reading as part of
+   the same system. Rather than commissioning new art, mute them to one
+   desaturated tone — a specimen photo in an equipment manual, not a poster —
+   and frame them with the same divider rule every other panel uses. */
+.at-card-image,
+.at-hero-image {
+  filter: grayscale(85%) contrast(1.05) brightness(0.92);
+}
+
+.at-card-image-frame {
+  border-block-end: 1px solid var(--at-divider);
+}
+
+.at-footer-inner h2 {
+  font-size: var(--at-font-size-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--at-text-muted);
+}

@@ -2,7 +2,6 @@
 import Card from "astro-theme-university/components/Card.astro";
 import CardGrid from "astro-theme-university/components/CardGrid.astro";
 import ContentLayout from "astro-theme-university/layouts/ContentLayout.astro";
-import heroImage from "../assets/images/hero-home.avif";
 import { courseMeta } from "../course-config";
 import { sessionLabels, siteConfig } from "../site-config";
 ---
@@ -10,8 +9,6 @@ import { sessionLabels, siteConfig } from "../site-config";
 <ContentLayout
   title={`${courseMeta.code}: ${courseMeta.title}`}
   description={courseMeta.description}
-  heroImage={heroImage}
-  heroImageAlt="A lecture theatre reduced to flat gold and black shapes, rows of seats sweeping past the frame, in a two-ink risograph print"
   {...siteConfig}
 >
   <ul class="course-tags" aria-label="Course tags">
@@ -41,10 +38,10 @@ import { sessionLabels, siteConfig } from "../site-config";
 
   <h2>How the semester moves</h2>
   <ol class="course-arc">
-    <li><strong>Understand the button.</strong> What it is, and why a shape reads as pressable at all.</li>
-    <li><strong>Study the press.</strong> Feedback, timing, and what happens on the other end of a push.</li>
-    <li><strong>Test where it fails.</strong> Buttons that don't work, that go unseen, that stop working for a hand that isn't yours, that are built to be pressed too often.</li>
-    <li><strong>Defend one perfect button.</strong> Build it, then argue for it.</li>
+    <li><span class="course-arc-body"><strong>Understand the button.</strong> What it is, and why a shape reads as pressable at all.</span></li>
+    <li><span class="course-arc-body"><strong>Study the press.</strong> Feedback, timing, and what happens on the other end of a push.</span></li>
+    <li><span class="course-arc-body"><strong>Test where it fails.</strong> Buttons that don't work, that go unseen, that stop working for a hand that isn't yours, that are built to be pressed too often.</span></li>
+    <li><span class="course-arc-body"><strong>Defend one perfect button.</strong> Build it, then argue for it.</span></li>
   </ol>
 
   <h2>Where to go next</h2>
@@ -72,20 +69,86 @@ import { sessionLabels, siteConfig } from "../site-config";
   }
 
   .course-tags li {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
     padding: 0.25rem 0.65rem;
-    border-radius: 999px;
+    border: 1px solid var(--at-divider);
+    border-radius: var(--at-border-radius);
     color: var(--at-text-secondary);
     background: var(--at-bg-alt);
-    font-size: 0.9rem;
+    font-family: var(--at-font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .course-tags li::before {
+    content: "";
+    inline-size: 0.4rem;
+    block-size: 0.4rem;
+    border-radius: 50%;
+    background: var(--at-accent);
+    flex-shrink: 0;
   }
 
   .central-question {
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--at-divider);
+    border-inline-start: 3px solid var(--at-accent);
+    border-radius: var(--at-border-radius);
+    background: var(--at-bg-alt);
     font-size: 1.15rem;
   }
 
   .course-arc {
     display: grid;
     gap: 0.75rem;
-    padding-left: 1.25rem;
+    padding: 0;
+    list-style: none;
+    counter-reset: step;
+  }
+
+  /* Fixed-width first column (not `auto`) so the badge never resizes to fit
+     stray content — see the ::before comment below for why that mattered. */
+  .course-arc li {
+    display: grid;
+    grid-template-columns: 2.25rem 1fr;
+    align-items: start;
+    gap: 0.9rem;
+    padding: 0.6rem 0.9rem;
+    border: 1px solid var(--at-divider);
+    border-radius: var(--at-border-radius);
+    counter-increment: step;
+  }
+
+  /* A bare "<strong>title</strong> rest of the sentence" child generates TWO
+     grid items (the element and a separate anonymous box for the trailing
+     text run), not one — so with only two explicit columns the trailing text
+     auto-placed into row 2 of the first (badge) column, stretching it to
+     fit the longest description. Wrapping the whole sentence in one element
+     keeps every <li> at exactly two grid items: the badge and this one. */
+  .course-arc-body {
+    display: block;
+  }
+
+  .course-arc-body strong {
+    display: block;
+    margin-block-end: 0.15rem;
+    color: var(--at-heading);
+  }
+
+  .course-arc li::before {
+    content: counter(step, decimal-leading-zero);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    block-size: 1.9rem;
+    border-radius: var(--at-border-radius);
+    background: var(--at-accent);
+    color: var(--at-on-accent);
+    font-family: var(--at-font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
   }
 </style>
