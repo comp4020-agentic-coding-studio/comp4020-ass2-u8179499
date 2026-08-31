@@ -85,9 +85,10 @@ approved; don't relitigate them while generating content.
 - Week 3, "The Grammar of Pressable," carries the one required real
   lecture deck.
 - It teaches affordance, signifier, convention, and pressability through
-  a fast sequence of concrete visual examples (real screenshots: things
-  that look pressable and aren't, and the reverse) — not dense bullet
-  slides restating the definitions in prose.
+  a fast sequence of concrete visual examples (constructed interface
+  mockups, not captured screenshots of real products: things that look
+  pressable and aren't, and the reverse) — not dense bullet slides
+  restating the definitions in prose.
 
 ## Quality control
 
