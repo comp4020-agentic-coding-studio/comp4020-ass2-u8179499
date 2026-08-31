@@ -1,53 +1,20 @@
 # Process overview
 
-<!-- TEMPLATE: this file is a shape to fill in, not a form. Replace everything
-     in it with your own overview, and delete this comment — `pnpm
-     check:evidence` will remind you if it's still here. -->
-
-Written by you, for a reader: how you got from the brief to the harness and
-agentic workflow behind this submission. Markers read this file and follow its
-citations; they don't trawl the repo for evidence you didn't point at.
-
-This file is the shape; the course site's
-[assessment page](https://comp.anu.edu.au/courses/comp4020-agentic-coding-studio/topics/assessment/#what-you-submit)
-is the requirement, and its
-[word counts](https://comp.anu.edu.au/courses/comp4020-agentic-coding-studio/topics/assessment/#word-counts)
-cover every deliverable.
-
 ## What I built
 
-One paragraph: the thing, and the idea behind it.
+SLOP3550, "Buttons: Twelve Weeks of Pressing Things," a fictional
+third-year course built on the astro-theme-university starter. The whole
+site — twelve weekly sessions, one lecture deck, three assessments, a
+people page, and an industrial-control-panel visual system — studies one
+object, the digital button, and returns every week to a single question:
+what makes a button feel worth pressing?
 
 ## How I got here
 
-The account of the process: how the work actually went, and how you knew the
-result was right. Tell it in whatever order makes it clear. A weekly prototype
-needs a paragraph or two; an assignment needs more.
+I started Assignment 2 by putting mechanical limits in place before asking the agent to make the course. The starter could already build, so I added checks for the promises the finished course had to keep: the assigned SLOP digits, twelve dated teaching weeks, assessment weights totalling 100%, and at least one lecture linked to a built deck. The twelve-week check deliberately began red, which gave the later content generation a concrete stopping condition rather than letting "looks complete" stand in for completeness ([`9add924`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-u8179499/commit/9add924)).
 
-Cite the record as you go, as links whose text is the commit hash or range and
-whose target is this repo's commit or compare URL, so a reader clicks straight
-to the evidence:
+Before generating any teaching material, I fixed the course around one question: "What makes a button feel worth pressing?" I established SLOP3550 and its learning outcomes ([`757e7cc`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-u8179499/commit/757e7cc)), then wrote a course-specific CLAUDE.md that prevented the agent from quietly turning the idea into a general HCI or UX course ([`9375335`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-u8179499/commit/9375335)). I generated the curriculum in four-week batches rather than asking for twelve weeks at once. That made Weeks 1–4, 5–8 and 9–12 separate acceptance points where I could check whether the same object and argument still held together ([`49c122a...94ada95`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-u8179499/compare/49c122a...94ada95)).
 
-- one commit: [`a1b2c3d`](https://github.com/YOUR-ORG/YOUR-REPO/commit/a1b2c3d)
-- a range:
-  [`a1b2c3d...e4f5a6b`](https://github.com/YOUR-ORG/YOUR-REPO/compare/a1b2c3d...e4f5a6b)
+The most useful harness changes came from output I rejected. During the middle-week pass, the agent used pull-to-refresh as an example of repeated pressing. It fit the idea of variable reward, but it was a gesture, not a button. I replaced the example and added an explicit rule that gestures are not substitutes for bounded controls before accepting the batch ([`40965ef`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-u8179499/commit/40965ef), [`9eb713b`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-u8179499/commit/9eb713b)). A similar issue appeared when planning the Week 3 deck: my harness originally asked for real screenshots, while the safer and more coherent solution was to construct the interface examples ourselves. I changed that rule before the final deck was accepted ([`c3478c1`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-u8179499/commit/c3478c1), [`da659d1`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-u8179499/commit/da659d1)).
 
-To pair a prompt with the commit it produced, quote the prompt (curated, not a
-full transcript) next to the citation:
-
-> the prompt, verbatim
-
-Screenshots are welcome where one carries the point better than a sentence does.
-Commit the file to this repo and link it with a **relative** path, which is what
-makes it render on GitHub: `![alt text](docs/before.png)`. Images don't count
-towards the word count and don't replace the citation.
-
-## Before you ship
-
-`pnpm check:evidence` verifies that this comment is gone, that your citations
-resolve to real commits, that a crit week's reflection entry is in
-`reflections/`, and that your `CLAUDE.md` is there. It checks that your account
-is traceable, not that it is good: that is the marker's call.
-
-Images aren't checked: unlike a citation whose SHA doesn't resolve, a broken
-image is visible the moment this file is rendered on GitHub.
+Passing checks was never enough by itself. Before accepting Week 12, I noticed that it synthesized the semester but did not actually return to the central question, so I added a closing defence that makes one finished button the answer ([`94ada95`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-u8179499/commit/94ada95)). The same distinction mattered visually. I chose an industrial control-panel language so the site itself would feel built around buttons, then inspected the rendered site rather than trusting the build. At the marking viewports, that review exposed a two-row desktop header and a broken Step 03 layout on the homepage. I fixed the navigation and the semester-module grid before accepting the visual system ([`2d2c581`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-u8179499/commit/2d2c581)). The workflow that emerged was therefore not "generate, then polish": set constraints, generate a small slice, judge it against the course idea, and turn recurring mistakes back into rules.
