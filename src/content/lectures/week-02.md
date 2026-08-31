@@ -1,7 +1,8 @@
 ---
-title: Second lecture
+title: Translating the Push
 description:
-  Week 2 — the first substantive material, and the run-up to the first review
+  What a physical button gives for free — resistance, travel, a click, a
+  physical return — and what a digital button has to fake or drop.
 week: 2
 date: 2027-03-01
 teachers:
@@ -11,13 +12,16 @@ related:
   - assessments/assignment-1
 ---
 
-<!-- STARTER_CONTENT: replace this lecture, then remove this comment. -->
-
-Replace this page. It exists so the lectures listing sorts by week and the
-related block has more than one edge to draw.
+Every physical cue a real button gives — resistance, travel, click, return,
+tactile confirmation — has to be simulated or abandoned once the button is a
+rectangle on glass. This lecture sets out what each cue is for, before the
+session asks you to rebuild one specific button and admit what you had to
+fake.
 
 ## Outline
 
-- the first substantive material, and where it shows up in practice
-- what the first review is looking for
-- reading before next week
+- five physical cues a real button gives, and the job each one does
+- which of those a touchscreen can simulate, and in which channel —
+  colour, sound, motion
+- what the session asks: pick one button from your Week 1 log, build the
+  smallest working digital version, and log what you faked or dropped

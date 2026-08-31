@@ -1,8 +1,8 @@
 ---
-title: Opening lecture
+title: The Button Before the Screen
 description:
-  The first lecture — what the course is, why it is shaped this way, and what
-  happens in week 1
+  What a button was before it was a rectangle on glass, and why every button
+  since is a variation on the same trick.
 week: 1
 date: 2027-02-22
 teachers:
@@ -12,19 +12,16 @@ related:
   - sessions/01-the-button-before-the-screen
 ---
 
-<!-- STARTER_CONTENT: replace this lecture, then remove this comment. -->
-
-Replace this page. A lecture entry says what was covered and links to the pages
-that own the detail, so the lecture stays short and nothing is explained twice.
-
-The `related:` ref above is a graph edge: it renders on this page and on the
-session's, so declare a connection once, on whichever side is convenient.
-
-The page renders its `slides:` link automatically. Decks are markdown too,
-under `src/decks/`; the path is part of the lecture's API metadata.
+A button does not solve the problem it sits next to. It reports the problem
+to something else, somewhere you usually can't see. That claim is set out
+here before the session asks you to test it against three buttons of your
+own.
 
 ## Outline
 
-- what the course is for
-- how the weeks are shaped
-- what to do before the first session
+- a button as a translator from a small hand action to a remote
+  consequence, not a device that acts on its own
+- four physical buttons that make the case: doorbell, elevator call
+  button, pedestrian crossing button, panic button
+- what the week 1 log asks for: what happens on the other end of the
+  press, not what the button looks like
