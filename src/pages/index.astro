@@ -5,9 +5,6 @@ import ContentLayout from "astro-theme-university/layouts/ContentLayout.astro";
 import heroImage from "../assets/images/hero-home.avif";
 import { courseMeta } from "../course-config";
 import { sessionLabels, siteConfig } from "../site-config";
-
-// STARTER_CONTENT: replace the hero artwork and its alt text below, then
-// remove this comment.
 ---
 
 <ContentLayout
@@ -21,18 +18,34 @@ import { sessionLabels, siteConfig } from "../site-config";
     {courseMeta.tags.map((tag) => <li>{tag}</li>)}
   </ul>
 
-  <!-- STARTER_CONTENT: replace the authored page below, then remove this comment. -->
+  <p class="central-question">
+    Every week asks a version of one question: <strong>what makes a button
+    feel worth pressing?</strong>
+  </p>
+
   <h2>What you will do</h2>
   <p>
-    Say what a student spends their time on — the making, reading, arguing or
-    measuring that fills the weeks. Name the artefact they walk out with.
+    Take one real button apart before you're allowed to build one. Then build
+    a button of your own, put it in front of someone else, and log exactly
+    where it works and where it doesn't. The semester ends with one button
+    you can defend, in full technical detail, against anyone in the room.
   </p>
 
   <h2>Who it is for</h2>
   <p>
-    Say who this is aimed at and what they need to already know. Be specific
-    enough that someone can rule themselves in or out without emailing you.
+    Third-year students who can already build a basic interactive web page,
+    or something equivalent. No prior design background is assumed. What the
+    course does assume is a willingness to take one small interaction apart,
+    in detail, and justify every part of it.
   </p>
+
+  <h2>How the semester moves</h2>
+  <ol class="course-arc">
+    <li><strong>Understand the button.</strong> What it is, and why a shape reads as pressable at all.</li>
+    <li><strong>Study the press.</strong> Feedback, timing, and what happens on the other end of a push.</li>
+    <li><strong>Test where it fails.</strong> Buttons that don't work, that go unseen, that stop working for a hand that isn't yours, that are built to be pressed too often.</li>
+    <li><strong>Defend one perfect button.</strong> Build it, then argue for it.</li>
+  </ol>
 
   <h2>Where to go next</h2>
   <CardGrid columns={2}>
@@ -64,5 +77,15 @@ import { sessionLabels, siteConfig } from "../site-config";
     color: var(--at-text-secondary);
     background: var(--at-bg-alt);
     font-size: 0.9rem;
+  }
+
+  .central-question {
+    font-size: 1.15rem;
+  }
+
+  .course-arc {
+    display: grid;
+    gap: 0.75rem;
+    padding-left: 1.25rem;
   }
 </style>

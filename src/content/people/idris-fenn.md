@@ -11,7 +11,7 @@ photo: ./idris-fenn.avif
 photoAlt: A stylised portrait of a person facing the viewer, flat gold and black shapes on warm cream, in a two-ink risograph print
 ---
 
-<!-- STARTER_CONTENT: replace this person entry, then remove this comment. -->
-
-Replace this entry. A second person makes the listing, role ordering and
-teacher-reference fields visible before you replace the cast with your own.
+Idris tutors the sessions built around a button's feedback: the gap between
+a press and a response, and what goes wrong when that gap runs long, short,
+or dishonest. He runs the first review pass on submitted work and leads the
+diagnosis exercises that follow a documented button failure.

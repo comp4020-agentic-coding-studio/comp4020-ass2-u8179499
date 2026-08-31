@@ -11,11 +11,8 @@ photo: ./marisol-quaye.avif
 photoAlt: A stylised portrait of a person in three-quarter view, flat gold and black shapes on warm cream, in a two-ink risograph print
 ---
 
-<!-- STARTER_CONTENT: replace this person entry, then remove this comment. -->
-
-Replace this entry. A people page carries a short bio and whatever a student
-needs in order to contact the right person for the right thing --- and nothing
-that will be stale by week 3.
-
-Consultation hours, contact preferences and the escalation path (who to ask
-first, who to ask when that does not work) are the parts students actually read.
+Marisol designed the course's twelve-week progression after tracing how many
+consequential decisions run through one small physical control: a panic
+button, a pedestrian crossing button, a lift call button. She teaches the
+weeks that follow a button from its mechanical ancestors to the point where
+pressing it stops being a small decision.
