@@ -14,6 +14,11 @@ approved; don't relitigate them while generating content.
 - A topic from that list may enter a week only as a property of one named
   button, never as its own unit. If a paragraph could be moved into a
   generic HCI course by deleting one sentence, rewrite it.
+- Gestures are not substitutes for buttons. Every grounding example and
+  activity must center on an actual bounded control that is pressed,
+  clicked, or tapped — not a swipe, drag, pull, or other gesture — except
+  when a week explicitly compares a button against a buttonless or
+  gesture-based alternative.
 
 ## Curriculum coherence
 
