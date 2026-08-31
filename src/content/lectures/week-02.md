@@ -9,7 +9,7 @@ teachers:
   - idris-fenn
 related:
   - sessions/02-translating-the-push
-  - assessments/assignment-1
+  - assessments/the-button-autopsy
 ---
 
 Every physical cue a real button gives — resistance, travel, click, return,
