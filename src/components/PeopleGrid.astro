@@ -21,13 +21,6 @@ const roleLabels: Record<string, string> = {
   other: "",
 };
 
-// photoAlt rides the schema's passthrough (definePeopleCollection has no
-// extension point), so it needs a cast out of the generated types.
-function photoAlt(data: unknown): string | undefined {
-  const alt = (data as { photoAlt?: unknown }).photoAlt;
-  return typeof alt === "string" ? alt : undefined;
-}
-
 const visible = people.sort((a, b) => {
   const ra = roleOrder[a.data.role ?? "other"] ?? 99;
   const rb = roleOrder[b.data.role ?? "other"] ?? 99;
@@ -39,19 +32,18 @@ const visible = people.sort((a, b) => {
 <CardGrid columns={2}>
   {
     visible.map((person) => (
-      <Card
-        headingLevel="h2"
-        title={person.data.title}
-        href={`/people/${person.id}/`}
-        image={person.data.photo ?? undefined}
-        imageAlt={photoAlt(person.data)}
-      >
+      <Card headingLevel="h2" title={person.data.title} href={`/people/${person.id}/`}>
         {person.data.role && roleLabels[person.data.role] && (
           <p>
             <small>{roleLabels[person.data.role]}</small>
           </p>
         )}
         <p>{person.data.description}</p>
+        {(person.data.email || person.data.contact) && (
+          <p>
+            <small>{person.data.email ?? person.data.contact}</small>
+          </p>
+        )}
       </Card>
     ))
   }

@@ -152,21 +152,6 @@ th {
   letter-spacing: 0.05em;
 }
 
-/* People photos: the only images this site's Card/Hero components render.
-   The existing portraits are warm cream/gold risograph illustrations, which
-   sit oddly against the dark graphite panels rather than reading as part of
-   the same system. Rather than commissioning new art, mute them to one
-   desaturated tone — a specimen photo in an equipment manual, not a poster —
-   and frame them with the same divider rule every other panel uses. */
-.at-card-image,
-.at-hero-image {
-  filter: grayscale(85%) contrast(1.05) brightness(0.92);
-}
-
-.at-card-image-frame {
-  border-block-end: 1px solid var(--at-divider);
-}
-
 .at-footer-inner h2 {
   font-size: var(--at-font-size-sm);
   text-transform: uppercase;
