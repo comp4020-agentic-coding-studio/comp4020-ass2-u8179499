@@ -7,7 +7,7 @@ date: 2027-03-01
 teachers:
   - idris-fenn
 related:
-  - sessions/02-first-review
+  - sessions/02-translating-the-push
   - assessments/assignment-1
 ---
 
